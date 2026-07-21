@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Móveis Planejados</title>
+  <link rel="icon" type="image/svg+xml" href="assets/imagens/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="logo-container">
+      <img src="assets/imagens/build.png" alt="Logo" class="logo">
+      <span class="logo-text">Móveis Planejados</span>
+    </div>
+    <button class="contato-btn" onclick="contatoAlert()">CONTATO</button>
+  </header>
+
+  <!-- Galeria Sala -->
+  <div class="galeria-modal" id="galeria-sala">
+    <button class="galeria-close" onclick="fecharGaleria('galeria-sala')">&times;</button>
+    <div class="galeria-track">
+      <img src="assets/sala.jpg" alt="Sala 1" class="galeria-item">
+      <img src="assets/sala2.jpg" alt="Sala 2" class="galeria-item">
+      <img src="assets/sala3.jpg" alt="Sala 3" class="galeria-item">
+    </div>
+    <div class="galeria-counter"></div>
+  </div>
+
+  <!-- Galeria Cozinha -->
+  <div class="galeria-modal" id="galeria-cozinha">
+    <button class="galeria-close" onclick="fecharGaleria('galeria-cozinha')">&times;</button>
+    <div class="galeria-track">
+      <img src="assets/cozinha.jpg" alt="Cozinha 1" class="galeria-item">
+      <img src="assets/cozinha2.jpg" alt="Cozinha 2" class="galeria-item">
+      <img src="assets/cozinha3.jpg" alt="Cozinha 3" class="galeria-item">
+    </div>
+    <div class="galeria-counter"></div>
+  </div>
+
+  <!-- Galeria Banheiro -->
+  <div class="galeria-modal" id="galeria-banheiro">
+    <button class="galeria-close" onclick="fecharGaleria('galeria-banheiro')">&times;</button>
+    <div class="galeria-track">
+      <img src="assets/banheiro.jpg" alt="Banheiro 1" class="galeria-item">
+      <img src="assets/banheiro2.jpg" alt="Banheiro 2" class="galeria-item">
+      <img src="assets/banheiro3.jpg" alt="Banheiro 3" class="galeria-item">
+    </div>
+
+    <div class="galeria-counter"></div>
+  </div>
+
+  <!-- Galeria Lavanderia -->
+  <div class="galeria-modal" id="galeria-lavanderia">
+    <button class="galeria-close" onclick="fecharGaleria('galeria-lavanderia')">&times;</button>
+    <div class="galeria-track">
+      <img src="assets/lavanderia.jpg" alt="Lavanderia 1" class="galeria-item">
+      <img src="assets/lavanderia2.jpg" alt="Lavanderia 2" class="galeria-item">
+      <img src="assets/lavanderia3.jpg" alt="Lavanderia 3" class="galeria-item">
+    </div>
+    <div class="galeria-counter"></div>
+  </div>
+
+  <!-- Galeria Quarto -->
+  <div class="galeria-modal" id="galeria-quarto">
+    <button class="galeria-close" onclick="fecharGaleria('galeria-quarto')">&times;</button>
+    <div class="galeria-track">
+      <img src="assets/quarto.jpg" alt="Quarto 1" class="galeria-item">
+      <img src="assets/quarto2.jpg" alt="Quarto 2" class="galeria-item">
+      <img src="assets/quarto3.jpg" alt="Quarto 3" class="galeria-item">
+    </div>
+    <div class="galeria-counter"></div>
+  </div>
+
+  <!-- Vídeos Fullscreen -->
+  <main class="videos-wrapper" id="videosWrapper">
+
+    <section class="video-section" data-theme="dark">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="assets/videos/sala.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay">
+        <h2>Sala de Estar</h2>
+        <button class="cta-btn" onclick="abrirGaleria('galeria-sala')">Ver Galeria</button>
+      </div>
+    </section>
+
+    <section class="video-section" data-theme="light">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="assets/videos/cozinha3.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay">
+        <h2>Cozinha Planejada</h2>
+        <button class="cta-btn" onclick="abrirGaleria('galeria-cozinha')">Ver Galeria</button>
+      </div>
+    </section>
+
+    <section class="video-section" data-theme="blue">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="assets/videos/banheiro4.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay">
+        <h2>Banheiro</h2>
+        <button class="cta-btn" onclick="abrirGaleria('galeria-banheiro')">Ver Galeria</button>
+      </div>
+    </section>
+
+    <section class="video-section" data-theme="warm">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="assets/videos/lavanderia2.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay">
+        <h2>Lavanderia</h2>
+        <button class="cta-btn" onclick="abrirGaleria('galeria-lavanderia')">Ver Galeria</button>
+      </div>
+    </section>
+
+    <section class="video-section" data-theme="rose">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="assets/videos/quarto2.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay">
+        <h2>Quarto</h2>
+        <button class="cta-btn" onclick="abrirGaleria('galeria-quarto')">Ver Galeria</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="footer-icons">
+      <a href="https://wa.me/5511930164939" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://maps.google.com/" target="_blank" rel="noopener" aria-label="Maps"><i class="fas fa-map-marker-alt"></i></a>
+    </div>
+    <p>&copy; 2026 Móveis Planejados. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
