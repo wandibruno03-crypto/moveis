@@ -22,6 +22,8 @@
   <!-- Galeria Sala -->
   <div class="galeria-modal" id="galeria-sala">
     <button class="galeria-close" onclick="fecharGaleria('galeria-sala')">&times;</button>
+    <div class="swipe-arrow-gal swipe-left-gal" onclick="galPrev('galeria-sala')"><i class="fas fa-chevron-left"></i></div>
+    <div class="swipe-arrow-gal swipe-right-gal" onclick="galNext('galeria-sala')"><i class="fas fa-chevron-right"></i></div>
     <div class="galeria-track">
       <img src="assets/sala.jpg" alt="Sala 1" class="galeria-item">
       <img src="assets/sala2.jpg" alt="Sala 2" class="galeria-item">
@@ -33,6 +35,8 @@
   <!-- Galeria Cozinha -->
   <div class="galeria-modal" id="galeria-cozinha">
     <button class="galeria-close" onclick="fecharGaleria('galeria-cozinha')">&times;</button>
+    <div class="swipe-arrow-gal swipe-left-gal" onclick="galPrev('galeria-cozinha')"><i class="fas fa-chevron-left"></i></div>
+    <div class="swipe-arrow-gal swipe-right-gal" onclick="galNext('galeria-cozinha')"><i class="fas fa-chevron-right"></i></div>
     <div class="galeria-track">
       <img src="assets/cozinha.jpg" alt="Cozinha 1" class="galeria-item">
       <img src="assets/cozinha2.jpg" alt="Cozinha 2" class="galeria-item">
@@ -44,18 +48,21 @@
   <!-- Galeria Banheiro -->
   <div class="galeria-modal" id="galeria-banheiro">
     <button class="galeria-close" onclick="fecharGaleria('galeria-banheiro')">&times;</button>
+    <div class="swipe-arrow-gal swipe-left-gal" onclick="galPrev('galeria-banheiro')"><i class="fas fa-chevron-left"></i></div>
+    <div class="swipe-arrow-gal swipe-right-gal" onclick="galNext('galeria-banheiro')"><i class="fas fa-chevron-right"></i></div>
     <div class="galeria-track">
       <img src="assets/banheiro.jpg" alt="Banheiro 1" class="galeria-item">
       <img src="assets/banheiro2.jpg" alt="Banheiro 2" class="galeria-item">
       <img src="assets/banheiro3.jpg" alt="Banheiro 3" class="galeria-item">
     </div>
-
     <div class="galeria-counter"></div>
   </div>
 
   <!-- Galeria Lavanderia -->
   <div class="galeria-modal" id="galeria-lavanderia">
     <button class="galeria-close" onclick="fecharGaleria('galeria-lavanderia')">&times;</button>
+    <div class="swipe-arrow-gal swipe-left-gal" onclick="galPrev('galeria-lavanderia')"><i class="fas fa-chevron-left"></i></div>
+    <div class="swipe-arrow-gal swipe-right-gal" onclick="galNext('galeria-lavanderia')"><i class="fas fa-chevron-right"></i></div>
     <div class="galeria-track">
       <img src="assets/lavanderia.jpg" alt="Lavanderia 1" class="galeria-item">
       <img src="assets/lavanderia2.jpg" alt="Lavanderia 2" class="galeria-item">
@@ -67,6 +74,8 @@
   <!-- Galeria Quarto -->
   <div class="galeria-modal" id="galeria-quarto">
     <button class="galeria-close" onclick="fecharGaleria('galeria-quarto')">&times;</button>
+    <div class="swipe-arrow-gal swipe-left-gal" onclick="galPrev('galeria-quarto')"><i class="fas fa-chevron-left"></i></div>
+    <div class="swipe-arrow-gal swipe-right-gal" onclick="galNext('galeria-quarto')"><i class="fas fa-chevron-right"></i></div>
     <div class="galeria-track">
       <img src="assets/quarto.jpg" alt="Quarto 1" class="galeria-item">
       <img src="assets/quarto2.jpg" alt="Quarto 2" class="galeria-item">
@@ -139,6 +148,12 @@
     </div>
     <p>&copy; 2026 Móveis Planejados. Todos os direitos reservados.</p>
   </footer>
+
+  <!-- Seta animada vídeos -->
+  <div class="swipe-hint" id="swipeHint">
+    <div class="swipe-arrow swipe-left" onclick="goToSection(currentSection - 1)"><i class="fas fa-chevron-left"></i></div>
+    <div class="swipe-arrow swipe-right" onclick="goToSection(currentSection + 1)"><i class="fas fa-chevron-right"></i></div>
+  </div>
 
   <script src="script.js"></script>
 </body>

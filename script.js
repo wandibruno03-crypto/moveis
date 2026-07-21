@@ -1,8 +1,8 @@
 const wrapper = document.getElementById('videosWrapper');
 const sections = document.querySelectorAll('.video-section');
 const totalSections = sections.length;
-let currentSection = 0;
-let isAnimating = false;
+var currentSection = 0;
+var isAnimating = false;
 
 function W() { return window.innerWidth; }
 
@@ -47,6 +47,44 @@ function abrirGaleria(id) {
 
 function fecharGaleria(id) {
   document.getElementById(id).classList.remove('ativo');
+}
+
+function galNext(id) {
+  const modal = document.getElementById(id);
+  const track = modal.querySelector('.galeria-track');
+  const items = track.querySelectorAll('.galeria-item');
+  let current = parseInt(track.dataset.current || '0');
+  if (current < items.length - 1) {
+    current++;
+    track.dataset.current = current;
+    track.classList.remove('dragging');
+    track.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+    const galW = items[0].offsetWidth + parseFloat(getComputedStyle(track).gap || 30);
+    const centerOff = (window.innerWidth - items[0].offsetWidth) / 2;
+    track.style.transform = `translate(${centerOff - current * galW}px, -50%)`;
+    updateGaleriaCounter(modal);
+    modal.querySelectorAll('.swipe-arrow-gal').forEach(a => a.style.opacity = '0');
+    setTimeout(() => { track.style.transition = ''; }, 400);
+  }
+}
+
+function galPrev(id) {
+  const modal = document.getElementById(id);
+  const track = modal.querySelector('.galeria-track');
+  const items = track.querySelectorAll('.galeria-item');
+  let current = parseInt(track.dataset.current || '0');
+  if (current > 0) {
+    current--;
+    track.dataset.current = current;
+    track.classList.remove('dragging');
+    track.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+    const galW = items[0].offsetWidth + parseFloat(getComputedStyle(track).gap || 30);
+    const centerOff = (window.innerWidth - items[0].offsetWidth) / 2;
+    track.style.transform = `translate(${centerOff - current * galW}px, -50%)`;
+    updateGaleriaCounter(modal);
+    modal.querySelectorAll('.swipe-arrow-gal').forEach(a => a.style.opacity = '0');
+    setTimeout(() => { track.style.transition = ''; }, 400);
+  }
 }
 
 function contatoAlert() {
@@ -101,6 +139,7 @@ function galeriaInitDrag(modal) {
     startX = e.touches[0].clientX;
     dragOffset = 0;
     track.classList.add('dragging');
+    modal.querySelectorAll('.swipe-arrow-gal').forEach(a => a.style.opacity = '0');
   };
 
   track.ontouchmove = (e) => {
@@ -136,6 +175,7 @@ function galeriaInitDrag(modal) {
     startX = e.clientX;
     dragOffset = 0;
     track.classList.add('dragging');
+    modal.querySelectorAll('.swipe-arrow-gal').forEach(a => a.style.opacity = '0');
     e.preventDefault();
   };
 
@@ -195,6 +235,9 @@ function onDragStart(x) {
   dragStartX = x;
   dragOffset = 0;
   sections.forEach(s => s.classList.add('dragging'));
+  const hint = document.getElementById('swipeHint');
+  if (hint) hint.style.opacity = '0';
+  setTimeout(() => { if (hint) hint.style.display = 'none'; }, 300);
 }
 
 function onDragMove(x) {
