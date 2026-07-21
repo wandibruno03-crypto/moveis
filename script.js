@@ -49,6 +49,11 @@ function fecharGaleria(id) {
   document.getElementById(id).classList.remove('ativo');
 }
 
+function contatoAlert() {
+  alert('Site de demonstração! Entre em contato pelo WhatsApp do programador abaixo no rodapé.');
+  window.open('https://wa.me/5500000000000', '_blank');
+}
+
 function galNext(id) {
   const modal = document.getElementById(id);
   const track = modal.querySelector('.galeria-track');
@@ -83,11 +88,6 @@ function galPrev(id) {
     updateGaleriaCounter(modal);
     setTimeout(() => { track.style.transition = ''; }, 400);
   }
-}
-
-function contatoAlert() {
-  alert('Site de demonstração! Entre em contato pelo WhatsApp do programador abaixo no rodapé.');
-  window.open('https://wa.me/5500000000000', '_blank');
 }
 
 function updateGaleriaCounter(modal) {

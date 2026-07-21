@@ -82,7 +82,6 @@ header {
   overflow: hidden;
   will-change: transform;
   transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-  
 }
 
 .video-section.dragging {
@@ -201,7 +200,7 @@ header {
 .galeria-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.60);
+  background: rgba(0, 0, 0, 0.40);
   z-index: 200;
   display: none;
   overflow: hidden;
