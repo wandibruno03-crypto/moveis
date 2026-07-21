@@ -63,7 +63,6 @@ function galNext(id) {
     const centerOff = (window.innerWidth - items[0].offsetWidth) / 2;
     track.style.transform = `translate(${centerOff - current * galW}px, -50%)`;
     updateGaleriaCounter(modal);
-    modal.querySelectorAll('.swipe-arrow-gal').forEach(a => a.style.opacity = '0');
     setTimeout(() => { track.style.transition = ''; }, 400);
   }
 }
@@ -82,7 +81,6 @@ function galPrev(id) {
     const centerOff = (window.innerWidth - items[0].offsetWidth) / 2;
     track.style.transform = `translate(${centerOff - current * galW}px, -50%)`;
     updateGaleriaCounter(modal);
-    modal.querySelectorAll('.swipe-arrow-gal').forEach(a => a.style.opacity = '0');
     setTimeout(() => { track.style.transition = ''; }, 400);
   }
 }
@@ -139,7 +137,6 @@ function galeriaInitDrag(modal) {
     startX = e.touches[0].clientX;
     dragOffset = 0;
     track.classList.add('dragging');
-    modal.querySelectorAll('.swipe-arrow-gal').forEach(a => a.style.opacity = '0');
   };
 
   track.ontouchmove = (e) => {
@@ -175,7 +172,6 @@ function galeriaInitDrag(modal) {
     startX = e.clientX;
     dragOffset = 0;
     track.classList.add('dragging');
-    modal.querySelectorAll('.swipe-arrow-gal').forEach(a => a.style.opacity = '0');
     e.preventDefault();
   };
 
@@ -235,14 +231,6 @@ function onDragStart(x) {
   dragStartX = x;
   dragOffset = 0;
   sections.forEach(s => s.classList.add('dragging'));
-  const left = document.getElementById('swipeLeft');
-  const right = document.getElementById('swipeRight');
-  if (left) left.style.opacity = '0';
-  if (right) right.style.opacity = '0';
-  setTimeout(() => {
-    if (left) left.style.display = 'none';
-    if (right) right.style.display = 'none';
-  }, 300);
 }
 
 function onDragMove(x) {
